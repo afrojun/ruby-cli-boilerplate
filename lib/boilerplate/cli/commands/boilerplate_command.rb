@@ -12,7 +12,7 @@ module Boilerplate
           aliases: ["-c", "--custom"],
           default: "wow",
           desc: "Some custom value",
-          values: %w[foo bar],
+          values: ["foo", "bar"],
         }
 
         example [
