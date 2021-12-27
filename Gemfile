@@ -5,6 +5,7 @@ ruby "~> 3.1"
 source "https://rubygems.org"
 
 gem "dry-cli"
+gem "zeitwerk"
 
 group :development do
   gem "overcommit", require: false
