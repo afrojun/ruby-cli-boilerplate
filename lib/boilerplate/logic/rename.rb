@@ -18,8 +18,8 @@ module Boilerplate
         Dir.glob(rbfiles).each do |file|
           File.open(file, "r+") do |f|
             f.each do |line|
-              rename_module(line)
-              rename_requires(line)
+              f.puts rename_module(line)
+              f.puts rename_requires(line)
             end
           end
 
@@ -29,6 +29,26 @@ module Boilerplate
 
       private
 
+      def rename_module(line)
+        return line unless line.include?(inflector.camelize(from))
+
+        updated_line = line.gsub(inflector.camelize(from), inflector.camelize(to))
+
+        puts "renaming #{line} to #{updated_line}"
+        # TODO: Actually rename module
+        updated_line
+      end
+
+      def rename_requires(line)
+        return line unless line.match?(/require.*#{inflector.underscore(from)}/)
+
+        updated_line = line.gsub(inflector.underscore(from), inflector.underscore(to))
+
+        puts "renaming #{line} to #{updated_line}"
+        # TODO: Actually rename require
+        updated_line
+      end
+
       def rename_file(file)
         basename = File.basename(file)
         return unless basename.include?(from)
@@ -36,24 +56,6 @@ module Boilerplate
         new_name = basename.gsub(from, inflector.underscore(to))
         puts "renaming #{basename} to #{new_name}"
         # TODO: Actually rename file
-      end
-
-      def rename_module(line)
-        return unless line.include?(inflector.camelize(from))
-
-        updated_line = line.gsub(inflector.camelize(from), inflector.camelize(to))
-
-        puts "renaming #{line} to #{updated_line}"
-        # TODO: Actually rename module
-      end
-
-      def rename_requires(line)
-        return unless line.match?(/require.*#{inflector.underscore(from)}/)
-
-        updated_line = line.gsub(inflector.underscore(from), inflector.underscore(to))
-
-        puts "renaming #{line} to #{updated_line}"
-        # TODO: Actually rename require
       end
 
       def inflector
