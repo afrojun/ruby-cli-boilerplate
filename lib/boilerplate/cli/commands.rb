@@ -8,6 +8,7 @@ module Boilerplate
       extend Dry::CLI::Registry
 
       register "command", BoilerplateCommand
+      register "rename", RenameCommand
     end
   end
 end
