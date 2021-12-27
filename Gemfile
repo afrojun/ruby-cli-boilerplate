@@ -6,6 +6,7 @@ source "https://rubygems.org"
 
 gem "dry-cli"
 gem "zeitwerk"
+gem "dry-inflector"
 
 group :development do
   gem "overcommit", require: false
