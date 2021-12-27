@@ -12,13 +12,13 @@ module Boilerplate
           aliases: ["-c", "--custom"],
           default: "wow",
           desc: "Some custom value",
-          values: ["foo", "bar"],
+          values: ["foo", "bar"]
         }
 
         example [
           "required_arg",
           "required_arg --custom=foo",
-          "required_arg -c f",
+          "required_arg -c f"
         ]
 
         def call(something_important:, **options)

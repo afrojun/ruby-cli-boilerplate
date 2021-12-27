@@ -8,9 +8,6 @@ gem "dry-cli"
 
 group :development do
   gem "overcommit", require: false
-  gem "rubocop", require: false
-  gem "rubocop-shopify", require: false
-  gem "rubocop-rspec", require: false
 end
 
 group :test do
@@ -18,3 +15,5 @@ group :test do
   gem "rspec"
   gem "simplecov", require: false
 end
+
+gem "standard", group: [:development, :test]
