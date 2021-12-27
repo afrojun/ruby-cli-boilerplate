@@ -6,7 +6,7 @@ This is a Ruby 3.0 CLI boilerplate to help accelerate initial setup of CLI proje
 
 ## Install
 
-Make sure you have Ruby 3.0 installed, then run:
+Make sure you have Ruby 3.1 installed (I use [asdf](https://asdf-vm.com/)), then run:
 
 ```sh
 bundle
